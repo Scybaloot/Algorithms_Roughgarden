@@ -25,8 +25,9 @@ def makeGraph(filename):
 	return graph
 
 graph = makeGraph("D_data.txt")
+graph
 
 print graph
 #print graph_array
-print type(graph[1][1][0])
+#print type(graph[1][1][0])
 #print type(adj_matrix[0])
