@@ -9,7 +9,9 @@ def create_shortest_path(graph):
 	#return unseen_Array
 	n = 0
 	#mainloop
-	while seen_Array != unseen_Array and n <40 :
+	while sum(seen_Array) != sum(graph.keys()) and n <40 :
+		print "seen_Array ", seen_Array
+		print "unseen_Array ", unseen_Array
 		shortest_path = 1000000
 		print "shortest paths hash: " , shortest_paths
 		n +=1 
@@ -19,8 +21,9 @@ def create_shortest_path(graph):
 			for edge in edges:
 				print "edge looked at: ", edge
 				if edge[0] in unseen_Array:
-					if edge[1] <= shortest_path:
-						shortest_path = edge[1]
+					#print "type of graph[vertex] : ", type(graph[vertex])
+					if edge[1] + shortest_paths[vertex] <= shortest_path:  #l_sv + l_vw
+						shortest_path = edge[1] + shortest_paths[vertex]
 						print "the vertex: ", vertex
 						closest_vertex_length = [edge[0], edge[1]+shortest_paths[vertex]]
 						print "closest vertex and length" , closest_vertex_length
